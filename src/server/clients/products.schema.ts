@@ -21,6 +21,7 @@ export const productsSchema: Schema<Products> = new Schema<
   productNum: { type: number, required: true, unique: true },
   name: { type: string, required: true },
   price: { type: number, required: true, default: 0 },
+  stock: { type: number, required: true, default: 0 },
   avgCost: { type: number, required: true, default: 0 },
   isAtomic: { type: Boolean, required: true, default: true },
   categoreist: { type: {}, required: true },
