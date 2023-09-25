@@ -1,7 +1,4 @@
-import { Schema, Model, Document } from "mongoose";
-import { RemultModel } from "remult";
-import uniqueValidator from "mongoose-unique-validator";
-import { SOrdersStatus, Status } from "./types";
+import { Schema, Model, Document, model } from "mongoose";
 
 export interface SOrdersSpec extends Document {
   sOrederNum: number;
@@ -20,8 +17,7 @@ export const sOrdersSpecSchema: Schema<SOrdersSpec> = new Schema<
   quantity: { type: Number, required: true },
 });
 
-export class SOrdersSpecModel extends RemultModel<SOrdersSpec> {
-  constructor() {
-    super(sOrdersSpecSchema);
-  }
-}
+export const SOrdersSpecModel: Model<SOrdersSpec> = model<SOrdersSpec>(
+  "SOrdersSpec",
+  sOrdersSpecSchema,
+);

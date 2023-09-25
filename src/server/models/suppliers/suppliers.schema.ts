@@ -1,6 +1,5 @@
-import { Schema, Model, Document } from "mongoose";
-import { RemultModel } from "remult";
-import uniqueValidator from "mongoose-unique-validator";
+import { Schema, Model, Document, model } from "mongoose";
+import { StatusEnum, SupTypeEnum } from "../types";
 import { Status, SupType } from './types'
 
 export interface Suppliers extends Document {
@@ -17,16 +16,19 @@ export interface Suppliers extends Document {
 export const suppliersSchema: Schema<Suppliers> = new Schema<Suppliers, Model<Suppliers>>({
   supNum: { type: String, required: true, unique: true },
   supId: { type: String,  required: false },
-  supStatus { , required: true, default: "Potential" },
-  supType { , required: true },
-  phone { type: String, required: true },
-  address { type: String, required: false },
-  supOrders: { type: [number], required: false, ref: "sorders" }
+  supStatus: {    type: String,
+    enum: StatusEnum,
+    required: true,
+    default: StatusEnum.Potential,
+ },
+  supType: { type: String, enum: SupTypeEnum, required: true },
+  phone: { type: String, required: true },
+  address: { type: String, required: false },
+  supOrders: { type: [Number], required: false, ref: "porders" }
 });
 
-export supass SuppliersModel extends RemultModel<Suppliers> {
-  constructor() {
-    super(suppliersSchema);
-  }
-}
+export const SuppliersModelModel: Model<Suppliers> = model<Suppliers>(
+  "Suppliers",
+  suppliersSchema,
+);
 

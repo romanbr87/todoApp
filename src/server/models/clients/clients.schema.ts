@@ -1,5 +1,10 @@
 import { Schema, Model, Document, model } from "mongoose";
-import { Status, StatusEnum, ClientType, ClientTypeEnum } from "../types";
+import {
+  Status,
+  StatusEnum,
+  ClientType,
+  ClientTypeEnum,
+} from "../../../shared/types";
 
 export interface Clients extends Document {
   clNum: string;

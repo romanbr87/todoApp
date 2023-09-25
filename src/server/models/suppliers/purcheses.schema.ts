@@ -20,11 +20,11 @@ export const purchesesSchema: Schema<Purcheses> = new Schema<
   name: { type: String, required: true },
   price: { type: Number, required: true, default: 0 },
   isAtomic: { type: Boolean, required: true, default: true },
-  categoreist: { type: {}, required: true },
+    //categories: { type: Map, of: [String], required: true },
+  categories: { type: Object, required: true }, // Changed "categoreist" to "categories" and set type to "Object"
 });
 
-export class PurchesesModel extends RemultModel<Purcheses> {
-  constructor() {
-    super(purchesesSchema);
-  }
-}
+export const PurchesesModel: Model<Purcheses> = model<Purcheses>(
+  "Purcheses",
+  purchesesSchema,
+);

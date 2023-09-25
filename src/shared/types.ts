@@ -28,6 +28,16 @@ export type OrderStatus =
   | "Test"
   | "InProgress";
 
+export enum OrderStatusEnum {
+  New = "New",
+  Active = "Active",
+  Finished = "Finished",
+  Canceled = "Canceled",
+  Delete = "Delete",
+  Test = "Test",
+  InProgress = "InProgress",
+}
+
 export type SupType =
   | "VAT_Bis"
   | "Licensed_Bis"
