@@ -1,6 +1,6 @@
 import { Schema, Model, Document, } from "mongoose";
 import { StatusEnum, SupTypeEnum } from "../../../shared/types";
-import { Status, SupType } from './types'
+import { Status, SupType } from "../../../shared/types";
 
 export interface Suppliers extends Document {
   supNum: string,

@@ -1,5 +1,5 @@
 import { Schema, Model, Document } from "mongoose";
-import { OrderStatus, OrderStatusEnum } from '../types'
+import { OrderStatus, OrderStatusEnum } from "../../../shared/types";
 
 export interface POrders extends Document {
   pOrederNum: number;
