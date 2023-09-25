@@ -1,4 +1,4 @@
-import { Schema, Model, Document, model } from "mongoose";
+import { Schema, Model, Document, } from "mongoose";
 import { StatusEnum, SupTypeEnum } from "../../../shared/types";
 import { Status, SupType } from './types'
 
@@ -27,7 +27,7 @@ export const suppliersSchema: Schema<Suppliers> = new Schema<Suppliers, Model<Su
   supOrders: { type: [Number], required: false, ref: "porders" }
 });
 
-export const SuppliersModelModel: Model<Suppliers> = model<Suppliers>(
+export const SuppliersModelModel: Model<Suppliers> = mongoose.model<Suppliers>(
   "Suppliers",
   suppliersSchema,
 );

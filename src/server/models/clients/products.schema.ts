@@ -1,4 +1,4 @@
-import { Schema, Model, Document, model } from "mongoose";
+import { Schema, Model, Document, } from "mongoose";
 import {ProductCat} from "../../../shared/types"
 
 export interface Products extends Document {
@@ -26,7 +26,7 @@ export const productsSchema: Schema<Products> = new Schema<
 
 });
 
-export const ProductsModel: Model<Products> = model<Products>(
+export const ProductsModel: Model<Products> = mongoose.model<Products>(
   "Products",
   productsSchema,
 );

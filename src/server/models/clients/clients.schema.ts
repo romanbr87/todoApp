@@ -1,4 +1,4 @@
-import { Schema, Model, Document, model } from "mongoose";
+import { Schema, Model, Document, } from "mongoose";
 import {
   Status,
   StatusEnum,
@@ -35,7 +35,7 @@ export const clientsSchema: Schema<Clients, Model<Clients>> = new Schema<
   clOrders: { type: [Number], required: false, ref: "sorders" },
 });
 
-export const ClientsModel: Model<Clients> = model<Clients>(
+export const ClientsModel: Model<Clients> = mongoose.model<Clients>(
   "Clients",
   clientsSchema,
 );

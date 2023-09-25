@@ -1,4 +1,4 @@
-import { Schema, Model, Document, model } from "mongoose";
+import { Schema, Model, Document, } from "mongoose";
 import { OrderStatus, OrderStatusEnum } from "../../../shared/types";
 
 export interface SOrders extends Document {
@@ -29,7 +29,7 @@ export const sOrdersSchema: Schema<SOrders> = new Schema<
   income: { type: Number, required: true, default: 0 },
 });
 
-export const SOrdersModel: Model<SOrders> = model<SOrders>(
+export const SOrdersModel: Model<SOrders> = mongoose.model<SOrders>(
   "Sorders",
   sOrdersSchema,
 );

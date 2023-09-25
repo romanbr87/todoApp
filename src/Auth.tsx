@@ -2,13 +2,14 @@ import { FormEvent, useEffect, useState } from "react";
 import App from "./App";
 import { remult } from "remult";
 
+const serverURL: string = (path: string) => `http://localhost:${process.env["PORT"] || 8080}/${path}`;
 
 export default function Auth(){
     const [username,setUsername]=useState("");
     const [signedIn,setSignedIn]=useState(false);
 
     useEffect(()=>{//when refreshing user still connected 
-        fetch("/api/currentUser").then(async(result)=>{
+        fetch(serverURL("/api/currentUser")).then(async(result)=>{
             remult.user=await result.json();
             if(remult.user) setSignedIn(true);
         });

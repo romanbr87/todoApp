@@ -21,7 +21,7 @@ export const pOrdersSchema: Schema<POrders> = new Schema<POrders, Model<POrders>
   outCome: { type: Number, required: true, default: 0 },
 });
 
-export const POrdersModel: Model<POrders> = model<POrders>(
+export const POrdersModel: Model<POrders> = mongoose.model<POrders>(
   "POrders",
   pOrdersSchema,
 );

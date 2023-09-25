@@ -24,7 +24,7 @@ export const purchesesSchema: Schema<Purcheses> = new Schema<
   categories: { type: Object, required: true }, // Changed "categoreist" to "categories" and set type to "Object"
 });
 
-export const PurchesesModel: Model<Purcheses> = model<Purcheses>(
+export const PurchesesModel: Model<Purcheses> = mongoose.model<Purcheses>(
   "Purcheses",
   purchesesSchema,
 );

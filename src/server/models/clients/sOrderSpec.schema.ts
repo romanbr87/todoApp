@@ -1,4 +1,4 @@
-import { Schema, Model, Document, model } from "mongoose";
+import { Schema, Model, Document, } from "mongoose";
 
 export interface SOrdersSpec extends Document {
   sOrederNum: number;
@@ -17,7 +17,7 @@ export const sOrdersSpecSchema: Schema<SOrdersSpec> = new Schema<
   quantity: { type: Number, required: true },
 });
 
-export const SOrdersSpecModel: Model<SOrdersSpec> = model<SOrdersSpec>(
+export const SOrdersSpecModel: Model<SOrdersSpec> = mongoose.model<SOrdersSpec>(
   "SOrdersSpec",
   sOrdersSpecSchema,
 );
