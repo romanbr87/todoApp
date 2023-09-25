@@ -14,13 +14,13 @@ export interface POrders extends Document {
 }
 
 export const pOrdersSchema: Schema<POrders> = new Schema<POrders, Model<POrders>>({
-  pOrederNum: { type: number, required: true, unique: true },
-  supNum: { type: string,  required: true, ref: 'suppliers' },
+  pOrederNum: { type: Number, required: true, unique: true },
+  supNum: { type: String,  required: true, ref: 'suppliers' },
   pOroderStatus { required: true, default: 'New' }
-  purchesesPrice { type: number, required: true, default: 0 }
-  discount { type: number, required: true, default: 0 }
-  finalPrice { type: number, required: true  }
-  outCome { type: number, required: true, default: 0 }
+  purchesesPrice { type: Number, required: true, default: 0 }
+  discount { type: Number, required: true, default: 0 }
+  finalPrice { type: Number, required: true  }
+  outCome { type: Number, required: true, default: 0 }
 });
 
 export class POrdersModel extends RemultModel<POrders> {

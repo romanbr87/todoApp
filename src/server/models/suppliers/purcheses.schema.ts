@@ -16,9 +16,9 @@ export const purchesesSchema: Schema<Purcheses> = new Schema<
   Purcheses,
   Model<Purcheses>
 >({
-  purcheseNum: { type: number, required: true, unique: true },
-  name: { type: string, required: true },
-  price: { type: number, required: true, default: 0 },
+  purcheseNum: { type: Number, required: true, unique: true },
+  name: { type: String, required: true },
+  price: { type: Number, required: true, default: 0 },
   isAtomic: { type: Boolean, required: true, default: true },
   categoreist: { type: {}, required: true },
 });

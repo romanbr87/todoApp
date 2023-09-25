@@ -15,10 +15,10 @@ export const sOrdersSchema: Schema<SOrders> = new Schema<SOrders, Model<SOrders>
   sOrederNum: { type: Number, required: true, unique: true },
   clientNum: { type: String,  required: true, ref: 'clients' },
   soroderStatus { required: true, default: 'New' }
-  productsPrice { type: number, required: true, default: 0 }
-  discount { type: number, required: true, default: 0 }
-  finalPrice { type: number, required: true  }
-  income { type: number, required: true, default: 0 }
+  productsPrice { type: Number, required: true, default: 0 }
+  discount { type: Number, required: true, default: 0 }
+  finalPrice { type: Number, required: true  }
+  income { type: Number, required: true, default: 0 }
 });
 
 export class SOrdersModel extends RemultModel<SOrders> {

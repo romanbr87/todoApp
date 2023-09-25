@@ -14,10 +14,10 @@ export const pOrdersSpecSchema: Schema<POrdersSpec> = new Schema<
   POrdersSpec,
   Model<POrdersSpec>
 >({
-  pOrederNum: { type: number, required: true, ref: "porders" }, //Primary key
-  lineNum: { type: number, required: true }, //Primary key
-  purcheseNum: { type: number, required: true, ref: "purcheses" },
-  quantity: { type: number, required: true },
+  pOrederNum: { type: Number, required: true, ref: "porders" }, //Primary key
+  lineNum: { type: Number, required: true }, //Primary key
+  purcheseNum: { type: Number, required: true, ref: "purcheses" },
+  quantity: { type: Number, required: true },
 });
 
 export class POrdersSpecModel extends RemultModel<POrdersSpec> {
