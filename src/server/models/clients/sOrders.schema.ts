@@ -1,7 +1,5 @@
 import { Schema, Model, Document } from "mongoose";
-import { RemultModel } from "remult";
-import uniqueValidator from "mongoose-unique-validator";
-import { OrderStatus, Status } from './types'
+import { OrderStatus, Status } from '../types'
 
 export interface SOrders extends Document {
   sOrederNum: number;
@@ -14,8 +12,8 @@ export interface SOrders extends Document {
 }
 
 export const sOrdersSchema: Schema<SOrders> = new Schema<SOrders, Model<SOrders>>({
-  sOrederNum: { type: number, required: true, unique: true },
-  clientNum: { type: string,  required: true, ref: 'clients' },
+  sOrederNum: { type: Number, required: true, unique: true },
+  clientNum: { type: String,  required: true, ref: 'clients' },
   soroderStatus { required: true, default: 'New' }
   productsPrice { type: number, required: true, default: 0 }
   discount { type: number, required: true, default: 0 }

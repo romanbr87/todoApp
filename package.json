@@ -19,15 +19,13 @@
     "lodash": "^4.17.21",
     "mongodb": "^5.4.0",
     "mongoose": "^6.11.2",
-    "mongoose-autopopulate": "^1.0.1",
-    "mongoose-unique-validator": "^4.0.0",
     "morgan": "^1.10.0",
     "nocache": "^3.0.4",
     "nodemailer": "^6.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remult": "^0.19.1"
-},
+  },
   "devDependencies": {
     "@types/cookie-session": "^2.0.44",
     "@types/cors": "^2.8.13",

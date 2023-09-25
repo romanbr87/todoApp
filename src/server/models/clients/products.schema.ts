@@ -1,6 +1,5 @@
-import { Schema, Model, Document } from "mongoose";
-import { RemultModel } from "remult";
-import uniqueValidator from "mongoose-unique-validator";
+import { Schema, Model, Document, model } from "mongoose";
+import {ProductCat} from "../types"
 
 export interface Products extends Document {
   productNum: number;
@@ -9,26 +8,25 @@ export interface Products extends Document {
   stock: number;
   avgCost: number;
   isAtomic: boolean;
-  categories: {
-    [key: string]: string[];
-  };
+  categories: ProductCat
 }
 
 export const productsSchema: Schema<Products> = new Schema<
   Products,
   Model<Products>
 >({
-  productNum: { type: number, required: true, unique: true },
-  name: { type: string, required: true },
-  price: { type: number, required: true, default: 0 },
-  stock: { type: number, required: true, default: 0 },
-  avgCost: { type: number, required: true, default: 0 },
+  productNum: { type: Number, required: true, unique: true },
+  name: { type: String, required: true },
+  price: { type: Number, required: true, default: 0 },
+  stock: { type: Number, required: true, default: 0 },
+  avgCost: { type: Number, required: true, default: 0 },
   isAtomic: { type: Boolean, required: true, default: true },
-  categoreist: { type: {}, required: true },
+  //categories: { type: Map, of: [String], required: true },
+  categories: { type: Object, required: true }, // Changed "categoreist" to "categories" and set type to "Object"
+
 });
 
-export class ProductsModel extends RemultModel<Products> {
-  constructor() {
-    super(productsSchema);
-  }
-}
+export const ProductsModel: Model<Products> = model<Products>(
+  "Products",
+  productsSchema,
+);
