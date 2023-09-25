@@ -1,41 +1,30 @@
-import { Schema, Model, Document, model } from "mongoose";
-import {
-  Status,
-  StatusEnum,
-  ClientType,
-  ClientTypeEnum,
-} from "../../../shared/types";
+import { Status, StatusEnum, ClientType, ClientTypeEnum } from "../../types";
+import { Entity, Id, Field, Enum } from "@remult";
 
-export interface Clients extends Document {
+@Entity<Clients>("clients")
+export class Clients {
+  @Id()
   clNum: string;
+
+  @Field()
   clId: string;
+
+  @Field()
   clName: string;
-  clStatus: Status;
-  clType: ClientType;
+
+  @Field()
+  clStatus: ClientStatusEnum = ClientStatusEnum.Potential;
+
+  @Field()
+  @Enum(ClientTypeEnum)
+  clType: ClientTypeEnum;
+
+  @Field()
   phone: string;
+
+  @Field()
   address: string;
+
+  @Field()
   clOrders: number[];
 }
-
-export const clientsSchema: Schema<Clients, Model<Clients>> = new Schema<
-  Clients,
-  Model<Clients>
->({
-  clNum: { type: String, required: true, unique: true },
-  clId: { type: String, required: false },
-  clStatus: {
-    type: String,
-    enum: StatusEnum,
-    required: true,
-    default: StatusEnum.Potential,
-  },
-  clType: { type: String, enum: ClientTypeEnum, required: true },
-  phone: { type: String, required: true },
-  address: { type: String, required: false },
-  clOrders: { type: [Number], required: false, ref: "sorders" },
-});
-
-export const ClientsModel: Model<Clients> = model<Clients>(
-  "Clients",
-  clientsSchema,
-);
