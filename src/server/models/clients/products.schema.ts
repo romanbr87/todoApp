@@ -1,5 +1,5 @@
 import { Schema, Model, Document, model } from "mongoose";
-import {ProductCat} from "../types"
+import {ProductCat} from "../../../shared/types"
 
 export interface Products extends Document {
   productNum: number;

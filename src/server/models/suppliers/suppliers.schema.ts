@@ -1,5 +1,5 @@
 import { Schema, Model, Document, model } from "mongoose";
-import { StatusEnum, SupTypeEnum } from "../types";
+import { StatusEnum, SupTypeEnum } from "../../../shared/types";
 import { Status, SupType } from './types'
 
 export interface Suppliers extends Document {

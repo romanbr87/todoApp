@@ -1,5 +1,5 @@
 import { Schema, Model, Document, model } from "mongoose";
-import { OrderStatus, OrderStatusEnum } from "../types";
+import { OrderStatus, OrderStatusEnum } from "../../../shared/types";
 
 export interface SOrders extends Document {
   sOrederNum: number;
