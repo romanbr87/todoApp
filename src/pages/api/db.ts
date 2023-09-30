@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
+const dbConnectionString = process.env.MONGO_URI;
 mongoose.set("bufferCommands", true);
 mongoose.set("strictQuery", true);
 
@@ -8,7 +9,6 @@ mongoose.Promise = global.Promise;
 const options = {
   useNewUrlParser: true,
   autoIndex: true,
-  //promiseLibrary: global.Promise,
   useUnifiedTopology: true,
 };
 
@@ -16,11 +16,11 @@ const connectToDatabase1 = async (): Promise<Mongoose> => {
   try {
     const connection: Mongoose = await mongoose.connect(
       dbConnectionString,
-      options
+      options,
     );
     console.log(
       "\ndatabase connected. Ready state:",
-      connection.connection.readyState
+      connection.connection.readyState,
     );
     return connection;
   } catch (error) {
