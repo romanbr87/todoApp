@@ -1,8 +1,6 @@
 import mongoose, { Schema, Model, Document, Types } from "mongoose";
 import {
   ProductCat,
-  ProductType,
-  ProductTypeEnum,
 } from "../../../shared/types";
 
 export interface Products extends Document {
@@ -13,7 +11,7 @@ export interface Products extends Document {
   avgCost: number;
   isAtomic: boolean;
   categories: ProductCat;
-  productTree: [product: Types.ObjectId, quantity: number];
+  productTree?: [product: Types.ObjectId, quantity: number];
 }
 
 export const productsSchema: Schema<Products> = new Schema<
