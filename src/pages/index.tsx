@@ -1,13 +1,14 @@
 import React from "react";
 import ProductForm from "./ProductForm";
+import "bootstrap/dist/css/bootstrap.css";
 
-export default function Home() {
+const IndexPage = () => {
   return (
     <div>
       <h1>Product Form</h1>
-      <div className="well">
-        <ProductForm />
-      </div>
+      <ProductForm />
     </div>
   );
-}
+};
+
+export default IndexPage;
