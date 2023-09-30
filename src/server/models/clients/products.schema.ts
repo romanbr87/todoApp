@@ -1,5 +1,9 @@
-import { Schema, Model, Document, } from "mongoose";
-import {ProductCat} from "../../../shared/types"
+import mongoose, { Schema, Model, Document, Types } from "mongoose";
+import {
+  ProductCat,
+  ProductType,
+  ProductTypeEnum,
+} from "../../../shared/types";
 
 export interface Products extends Document {
   productNum: number;
@@ -8,7 +12,8 @@ export interface Products extends Document {
   stock: number;
   avgCost: number;
   isAtomic: boolean;
-  categories: ProductCat
+  categories: ProductCat;
+  productTree: [product: Types.ObjectId, quantity: number];
 }
 
 export const productsSchema: Schema<Products> = new Schema<
@@ -23,7 +28,19 @@ export const productsSchema: Schema<Products> = new Schema<
   isAtomic: { type: Boolean, required: true, default: true },
   //categories: { type: Map, of: [String], required: true },
   categories: { type: Object, required: true }, // Changed "categoreist" to "categories" and set type to "Object"
-
+  productTree: {
+    type: [
+      {
+        product: {
+          type: Schema.Types.ObjectId,
+          required: true,
+          ref: "Products",
+        },
+        quantity: { type: Number, required: true },
+      },
+    ],
+    required: false,
+  },
 });
 
 export const ProductsModel: Model<Products> = mongoose.model<Products>(

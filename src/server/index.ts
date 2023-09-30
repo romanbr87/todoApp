@@ -7,6 +7,9 @@ import session from "cookie-session";
 import { Task } from "../shared/task";
 import { TaskController } from "../shared/TasksControoler";
 
+import { ClientsModel } from "./models/clients/clients.schema";
+import { ProductsModel } from "./models/clients/products.schema";
+
 import { auth } from "./auth";
 require("dotenv").config();
 

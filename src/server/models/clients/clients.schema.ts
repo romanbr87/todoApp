@@ -1,4 +1,4 @@
-import { Schema, Model, Document, } from "mongoose";
+import mongoose, { Schema, Model, Document } from "mongoose";
 import {
   Status,
   StatusEnum,
@@ -8,12 +8,8 @@ import {
 
 export interface Clients extends Document {
   clNum: string;
-  clId: string;
-  clName: string;
   clStatus: Status;
   clType: ClientType;
-  phone: string;
-  address: string;
   clOrders: number[];
 }
 
@@ -22,7 +18,6 @@ export const clientsSchema: Schema<Clients, Model<Clients>> = new Schema<
   Model<Clients>
 >({
   clNum: { type: String, required: true, unique: true },
-  clId: { type: String, required: false },
   clStatus: {
     type: String,
     enum: StatusEnum,
@@ -30,9 +25,7 @@ export const clientsSchema: Schema<Clients, Model<Clients>> = new Schema<
     default: StatusEnum.Potential,
   },
   clType: { type: String, enum: ClientTypeEnum, required: true },
-  phone: { type: String, required: true },
-  address: { type: String, required: false },
-  clOrders: { type: [Number], required: false, ref: "sorders" },
+  clOrders: { type: [Number], required: false, ref: "Saleorders" },
 });
 
 export const ClientsModel: Model<Clients> = mongoose.model<Clients>(

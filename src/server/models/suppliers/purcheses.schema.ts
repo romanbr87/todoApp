@@ -1,6 +1,4 @@
-import { Schema, Model, Document } from "mongoose";
-import { RemultModel } from "remult";
-import uniqueValidator from "mongoose-unique-validator";
+import mongoose, { Schema, Model, Document } from "mongoose";
 
 export interface Purcheses extends Document {
   purcheseNum: number;

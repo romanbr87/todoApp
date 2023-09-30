@@ -2,8 +2,9 @@ import { FormEvent, useEffect, useState } from "react";
 import App from "./App";
 import { remult } from "remult";
 
+const PORT = process?.env["PORT"] ?? 5173;
 const serverURL: (path: string) => string = (path: string) =>
-  `http://localhost:${process.env["PORT"] || 8080}/${path}`;
+  `http://localhost:${PORT}/${path}`;
 
 export default function Auth() {
   const [username, setUsername] = useState("");
